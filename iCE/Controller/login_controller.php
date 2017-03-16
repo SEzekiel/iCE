@@ -1,5 +1,4 @@
 <?php
-
 class UserController
 {
     function UserController($username,$password){
