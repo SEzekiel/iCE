@@ -1,41 +1,85 @@
 <ion-view view-title="Profile">
     <ion-content ng-class="{expanded:$scope.isExpanded}">
-        <div class="hero slide-up" style="background-image: url('img/profile-bg.jpg');">
+        <div class="hero slide-up" style="background-image: url('img/logowd.png');">
             <div class="content">
-                <div class="avatar" style="background-image: url('img/daenerys.jpg');"></div>
-                <h3><a class="light">Daenerys Targaryen</a></h3>
-                <h4>dragon_mommy</h4>
+                <div class="avatar" style="background-image: url('img/profile.jpg');"></div>
+                <h3><a class="light">Ezekiel Sebastine</a></h3>
+                <h4>eaZy-d</h4>
             </div>
         </div>
         <div class="tabs tabs-dark tabs-icon-top static">
-            <a ui-sref="app.activity" class="tab-item">
+<!--             <a ui-sref="app.activity" class="tab-item">
                 <i class="icon ion-arrow-graph-up-right"></i> Activity
-            </a>
+            </a> -->
             <a ui-sref="app.friends" class="tab-item">
-                <i class="icon ion-android-people"></i> Friends
+                <i class="icon ion-android-home"></i> Home
             </a>
             <a ui-sref="app.gallery" class="tab-item">
-                <i class="icon ion-images"></i> Photos
+                <i class="icon ion-android-contacts"></i> eContacts
             </a>
         </div>
-        <h4 class="content padding double-padding-x">Following</h4>
+        <h4 class="content padding double-padding-x">Emergency list</h4>
         <div class="list animate-fade-slide-in-right">
             <a ui-sref="app.friends" class="item item-avatar item-icon-right">
-                <img src="img/jon-snow.jpg">
-                <h2>Jon Snow</h2>
-                <p>Da illest illegitimate</p>
+                <img src="img/robbery.png">
+                <h2>Robbery</h2>
+                <p>All act of robbery</p>
                 <i class="icon ion-chatbubble muted"></i>
             </a>
             <a ui-sref="app.friends" class="item item-avatar item-icon-right">
-                <img src="img/sansa.jpg">
-                <h2>Sansa Stark</h2>
-                <p>&amp; Joffrey <strike>sitting</strike> sat in a tree</p>
+                <img src="img/health.png">
+                <h2>Health</h2>
+                <p>All health emergencies</p>
                 <i class="icon ion-chatbubble muted"></i>
             </a>
             <a ui-sref="app.friends" class="item item-avatar item-icon-right">
-                <img src="img/tyrion.jpg">
-                <h2>Tyrion Lannister</h2>
-                <p>B.A.M.F. imp</p>
+                <img src="img/accident.png">
+                <h2>Road accident</h2>
+                <p>All road accidents</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="img/fire.png">
+                <h2>Fire</h2>
+                <p>All fire accidents</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="img/floodIcon.png">
+                <h2>Flood</h2>
+                <p>Flood emergency</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="img/electrickshock.png">
+                <h2>Electric shock</h2>
+                <p>Life threatening electric shock</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="img/landslide.png">
+                <h2>Land slide</h2>
+                <p>Movind earth!</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="img/hazard.png">
+                <h2>Biological hazard</h2>
+                <p>Biological hazard</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="img/radioactive.jpg">
+                <h2>Nuclear</h2>
+                <p>Radioactive etc</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="img/accident.png">
+                <h2>Other</h2>
+                <p>Any other emergency</p>
                 <i class="icon ion-chatbubble muted"></i>
             </a>
         </div>
