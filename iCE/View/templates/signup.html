@@ -13,18 +13,21 @@
             <ion-item>
                 <label class = "item item-input item-select">
                    <div class = "input-label">
-                      Select
+                      Gender
                    </div>
                     
                    <select>
-                      <option>Option 1</option>
-                      <option selected>Option 2</option>
-                      <option>Option 3</option>
+                      <option value="">--Select--</option>
+                      <option value="M">Male</option>
+                      <option value="F">Female</option>
                    </select>
                 </label>
             </ion-item>
             <ion-md-input placeholder="password" highlight-color="balanced" type="text"></ion-md-input>
-            <ion-md-input placeholder="Password" highlight-color="energized" type="password"></ion-md-input>
+            <p><p><hr>
+            In case of emergency, who do we call
+            <ion-md-input placeholder="Full name" highlight-color="energized" type="text"></ion-md-input>
+            <ion-md-input placeholder="Phone number" highlight-color="energized" type="tel"></ion-md-input>
         </div>
         <div class="padding">
             <button ui-sref="app.profile" class="button button-full button-assertive ink">Submit</button>
