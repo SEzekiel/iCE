@@ -7,9 +7,6 @@
 
 	$conn = mysqli_connect(HOST, USERNAME, PASSWORD, DBNAME);
 	if (mysqli_connect_errno()) {
-		die("Error". $con->connect_error)
+		die("Error". $conn->connect_error);
 	}
 
-
-
-?>
