@@ -1,72 +1,32 @@
 <ion-view view-title="Gallery">
     <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
-        <div class="list half">
-            <div ui-sref="app.profile" class="card card-gallery item item-text-wrap">
-                <div class="ink dark-bg">
-                    <h2>Where's Elsa?</h2>
-                    <img class="full-image" src="img/sansa-snowcastle3.jpg">
-                </div>
-                <div class="item tabs tabs-secondary tabs-icon-left">
-                    <a class="tab-item stable-bg assertive">
-                        <i class="icon ion-heart"></i>
-                        4
-                    </a>
-                    <a class="tab-item stable-bg positive-900">
-                        <i class="icon ion-chatbubbles"></i>
-                        2
-                    </a>
-                </div>
-            </div>
-            <div ui-sref="app.profile" class="card card-gallery item item-text-wrap">
-                <div class="ink dark-bg">
-                    <h2>Hmm. Hope nobody destroys this!</h2>
-                    <img class="full-image" src="img/sansa-snowcastle.png">
-                </div>
-                <div class="item tabs tabs-secondary tabs-icon-left">
-                    <a class="tab-item stable-bg assertive">
-                        <i class="icon ion-heart"></i>
-                        6
-                    </a>
-                    <a class="tab-item stable-bg positive-900">
-                        <i class="icon ion-chatbubbles"></i>
-                        1
-                    </a>
-                </div>
-            </div>
+                <div id="message" style="width: 100%; text-align: center; color: red; font-style: sans-serif">
+            
         </div>
-        <div class="list half">
-            <div ui-sref="app.profile" class="card card-gallery item item-text-wrap">
-                <div class="ink dark-bg">
-                    <h2>Making Olaf a House</h2>
-                    <img class="full-image" src="img/sansa-snowcastle2.jpg">
-                </div>
-                <div class="item tabs tabs-secondary tabs-icon-left">
-                    <a class="tab-item stable-bg assertive">
-                        <i class="icon ion-heart"></i>
-                        22
-                    </a>
-                    <a class="tab-item stable-bg positive-900">
-                        <i class="icon ion-chatbubbles"></i>
-                        9
-                    </a>
-                </div>
-            </div>
-            <div ui-sref="app.profile" class="card card-gallery item item-text-wrap">
-                <div class="ink dark-bg">
-                    <h2>ohai!</h2>
-                    <img class="full-image" src="img/sansa-snowcastle4.jpg">
-                </div>
-                <div class="item tabs tabs-secondary tabs-icon-left">
-                    <a class="tab-item stable-bg assertive">
-                        <i class="icon ion-heart"></i>
-                        8
-                    </a>
-                    <a class="tab-item stable-bg positive-900">
-                        <i class="icon ion-chatbubbles"></i>
-                        0
-                    </a>
-                </div>
-            </div>
+        <div class="list"> 
+            <input placeholder="Full name*" highlight-color="balanced" type="text" style="width: 100%;background-color: lightgrey;" id="name"></input><br>
+            <input placeholder="Phone number*" highlight-color="balanced" type="tel" style="width: 100%; background-color: lightgrey;" id="phone"></input><br>
+            <input placeholder="Email*" highlight-color="balanced" type="email" style="width: 100%;background-color: lightgrey;" id="email"></input>
+            <ion-item>
+                <label class = "item item-input item-select">
+                   <div class = "input-label">
+                      Gender
+                   </div>
+                   <select id="gender">
+                      <option value="">--Select--</option>
+                      <option value="M">Male</option>
+                      <option value="F">Female</option>
+                   </select>
+                </label>
+            </ion-item>
+
+            <div style="width: 100%; text-aline:center"> <a href="#">Click here to change password</a> </div>
+        </div>
+        <div class="padding">
+            <button ui-sref="" class="button button-full button-assertive ink" onclick="doSignup()">Update</button>
+        </div>
+        <div class="padding">
+            <button ui-sref="app.login" class="button button-full button-calm-100 ink">Back to login</button>
         </div>
     </ion-content>
 </ion-view>

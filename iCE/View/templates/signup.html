@@ -6,31 +6,33 @@
                 <h1>iCE Register</h1>
             </div>
         </div> 
+        <div id="message" style="width: 100%; text-align: center; color: red; font-style: sans-serif">
+            
+        </div>
         <div class="list"> 
-            <ion-md-input placeholder="Full name" highlight-color="balanced" type="text"></ion-md-input>
-            <ion-md-input placeholder="Phone number" highlight-color="balanced" type="tel"></ion-md-input>
-            <ion-md-input placeholder="Email" highlight-color="balanced" type="email"></ion-md-input>
+            <input placeholder="Full name*" highlight-color="balanced" type="text" style="width: 100%" id="name"></input><br>
+            <input placeholder="Phone number*" highlight-color="balanced" type="tel" style="width: 100%" id="phone"></input><br>
+            <input placeholder="Email*" highlight-color="balanced" type="email" style="width: 100%" id="email"></input>
             <ion-item>
                 <label class = "item item-input item-select">
                    <div class = "input-label">
                       Gender
                    </div>
-                    
-                   <select>
+                   <select id="gender">
                       <option value="">--Select--</option>
                       <option value="M">Male</option>
                       <option value="F">Female</option>
                    </select>
                 </label>
             </ion-item>
-            <ion-md-input placeholder="password" highlight-color="balanced" type="text"></ion-md-input>
+            <input placeholder="password*" highlight-color="balanced" type="text" style="width: 100%" id="password"></input>
             <p><p><hr>
-            In case of emergency, who do we call
-            <ion-md-input placeholder="Full name" highlight-color="energized" type="text"></ion-md-input>
-            <ion-md-input placeholder="Phone number" highlight-color="energized" type="tel"></ion-md-input>
+            In case of emergency, who do we call (Required)
+            <input placeholder="Full name*" highlight-color="energized" type="text" style="width: 100%" id="cname"></input><br>
+            <input placeholder="Phone number*" highlight-color="energized" type="tel" style="width: 100%" id="cphone"></input>
         </div>
         <div class="padding">
-            <button ui-sref="app.profile" class="button button-full button-assertive ink">Submit</button>
+            <button ui-sref="" class="button button-full button-assertive ink" onclick="doSignup()">Submit</button>
         </div>
         <div class="padding">
             <button ui-sref="app.login" class="button button-full button-calm-100 ink">Back to login</button>
