@@ -1,5 +1,6 @@
 <?php
 include('dbconnect');
+//login
 function login($email, $password)
 {
   $stmt = $con->prepare("SELECT * FROM users WHERE email=:email LIMIT 1");
@@ -16,7 +17,7 @@ function login($email, $password)
     }
   }
 }
-
+//register user
 function register($name,$gender,$phone,$email,$password,$emergencyNumber, $emergencyName)
 {
   $password = password_hash($upass, PASSWORD_BCRYPT, array('cost'=>11));
@@ -34,4 +35,43 @@ function register($name,$gender,$phone,$email,$password,$emergencyNumber, $emerg
   }else{
     return false;
   }
+}
+//update userinformation
+function update($name =null,$gender=null,$phone=null,$email=null,$password=null,$emergencyNumber=null, $emergencyName=null){
+  $stmt=$con->prepare("UPDATE users SET name=:name, gender=:gender, phone=:phone, email=:email, password=:password,
+    emergencyNumber=:emergencyNumber, emergencyName=:emergencyName");
+    $stmt->bindparam(":name", $name);
+    $stmt->bindparam(":gender", $phone);
+    $stmt->bindparam(":phone", $phone);
+    $stmt->bindparam(":email", $email);
+    $stmt->bindparam(":password", $password);
+    $stmt->bindparam(":emergencyName", $emergencyName);
+    $stmt->bindparam(":emergencyNumber", $emergencyNumber);
+    if($stmt->execute()){
+      return true;
+    }else{
+      return false;
+    }
+}
+
+//get single data from database
+function single($id)
+{
+  $stmt = $con->prepare("SELECT * FROM users WHERE id=:id LIMIT 1");
+  $stmt->bindparam("id",$id))
+  $stmt->execute();
+  $userRow=$stmt->fetch();
+  return $userRow;
+}
+
+//get all data from database
+function resultSet()
+{
+  $allData = array();
+  $stmt = $con->prepare("SELECT * FROM users");
+  $stmt->execute();
+  while($userRow=$stmt->fetchAll()){
+    $allData[] = $userRow
+  }
+  return $allData;
 }
