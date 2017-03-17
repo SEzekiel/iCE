@@ -24,7 +24,7 @@ function login(user, pass){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "templates/login-controller.php?user="+user+"&pass="+pass,true);
+	httpRequest.open("GET", "../Controller/login-controller.php?user="+user+"&pass="+pass,true);
 	httpRequest.send();
 }
 
@@ -98,7 +98,7 @@ function signup(name, phone, email,gender,pass,cName, cNumber){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "templates/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
 	httpRequest.send();
 }
 
@@ -160,7 +160,7 @@ function sendRobbery(position){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "templates/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
 	httpRequest.send();
 
 }
@@ -232,7 +232,7 @@ function sendHealth(position){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "templates/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
 	httpRequest.send();
 
 }
@@ -265,7 +265,7 @@ function sendAccident(position){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "templates/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
 	httpRequest.send();
 
 }
@@ -298,7 +298,7 @@ function sendFire(position){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "templates/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
 	httpRequest.send();
 
 }
@@ -330,7 +330,7 @@ function sendFlood(position){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "templates/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
 	httpRequest.send();
 
 }
@@ -362,7 +362,7 @@ function sendShock(position){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "templates/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
 	httpRequest.send();
 
 }
@@ -394,7 +394,7 @@ function sendLandslide(position){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "templates/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
 	httpRequest.send();
 
 }
@@ -426,7 +426,7 @@ function sendHazard(position){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "templates/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
 	httpRequest.send();
 
 }
@@ -458,7 +458,7 @@ function sendNuclear(position){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "templates/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
 	httpRequest.send();
 
 }
@@ -490,7 +490,7 @@ function sendOther(position){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "templates/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
 	httpRequest.send();
 
 }
