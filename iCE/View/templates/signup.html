@@ -1,5 +1,5 @@
 <ion-view view-title="Signup" align-title="left">
-    <ion-content style="background-size: cover; background-color: lightblue;">
+    <ion-content style="background-size: cover; background-color: #FFC0CB;">
         <div class="hero no-header flat">
             <div class="content">
                 <div class="app-icon"></div>
@@ -10,9 +10,9 @@
             
         </div>
         <div class="list"> 
-            <input placeholder="Full name*" highlight-color="balanced" type="text" style="width: 100%" id="name"></input><br>
-            <input placeholder="Phone number*" highlight-color="balanced" type="tel" style="width: 100%" id="phone"></input><br>
-            <input placeholder="Email*" highlight-color="balanced" type="email" style="width: 100%" id="email"></input>
+            <input placeholder="Full name*" highlight-color="balanced" type="text" style="width: 100%; height: 50px" id="name"></input><br>
+            <input placeholder="Phone number*" highlight-color="balanced" type="tel" style="width: 100%;height: 50px" id="phone"></input><br>
+            <input placeholder="Email*" highlight-color="balanced" type="email" style="width: 100%;height: 50px" id="email"></input>
             <ion-item>
                 <label class = "item item-input item-select">
                    <div class = "input-label">
@@ -25,11 +25,11 @@
                    </select>
                 </label>
             </ion-item>
-            <input placeholder="password*" highlight-color="balanced" type="text" style="width: 100%" id="password"></input>
+            <input placeholder="password*" highlight-color="balanced" type="text" style="width: 100%;height: 50px" id="password"></input>
             <p><p><hr>
             In case of emergency, who do we call (Required)
-            <input placeholder="Full name*" highlight-color="energized" type="text" style="width: 100%" id="cname"></input><br>
-            <input placeholder="Phone number*" highlight-color="energized" type="tel" style="width: 100%" id="cphone"></input>
+            <input placeholder="Full name*" highlight-color="energized" type="text" style="width: 100%;height: 50px" id="cname"></input><br>
+            <input placeholder="Phone number*" highlight-color="energized" type="tel" style="width: 100%;height: 50px" id="cphone"></input>
         </div>
         <div class="padding">
             <button ui-sref="" class="button button-full button-assertive ink" onclick="doSignup()">Submit</button>
@@ -37,10 +37,11 @@
         <div class="padding">
             <button ui-sref="app.login" class="button button-full button-calm-100 ink">Back to login</button>
         </div>
-<!--         <div class="button-bar social-login">
-            <button class="button button-small button-border icon-left ion-social-google button-assertive-900">Google+</button>
-            <button class="button button-small button-border icon-left ion-social-twitter button-calm-900">Twitter</button>
-            <button class="button button-small button-border icon-left ion-social-facebook button-positive-900">Facebook</button>
-        </div> -->
+        <div style="text-align: center">
+        Or signup with<br>
+            <button class="button button-small button-border icon-left ion-social-google button-assertive-900" style="width: 33%;"></button>
+            <button class="button button-small button-border icon-left ion-social-twitter button-calm-900" style="width: 33%"></button>
+            <button class="button button-small button-border icon-left ion-social-facebook button-positive-900" style="width: 33%; float: right;"></button><p>
+        </div>
     </ion-content>
 </ion-view>

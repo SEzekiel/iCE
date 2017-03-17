@@ -1,4 +1,6 @@
 <?php
+include "dbconnect.php";
+
 function log_db_errors($error, $userId)
 {
     $stmt = $conn->prepare("INSERT INTO activity(error, userId) VALUES(:error, :userId) where userId =:userId");
@@ -9,5 +11,4 @@ function log_db_errors($error, $userId)
     } else {
         return false;
     }
-
 }
