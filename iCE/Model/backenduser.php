@@ -3,7 +3,7 @@
 include 'dbconnect.php';
 
 //login
-function login($email, $password)
+function login_backend($email, $password)
 {
     $stmt = $conn->prepare("SELECT * FROM backend WHERE email=:email LIMIT 1");
     $stmt->execute(array(':email' => $email));

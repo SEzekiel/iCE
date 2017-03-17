@@ -3,7 +3,7 @@
 include 'dbconnect.php';
 
 //login
-function login($email, $password)
+function login_frontend($email, $password)
 {
     $stmt = $conn->prepare("SELECT * FROM users WHERE email=:email LIMIT 1");
     $stmt->execute(array(':email' => $email));
@@ -20,7 +20,7 @@ function login($email, $password)
 }
 
 //register user
-function register($name, $gender, $phone, $email, $password, $emergencyNumber, $emergencyName)
+function register_frontend($name, $gender, $phone, $email, $password, $emergencyNumber, $emergencyName)
 {
     $password = password_hash($upass, PASSWORD_BCRYPT, array('cost' => 11));
     $stmt = $conn->prepare("INSERT INTO users(name,gender,phone,email,password,emergencyNumber, emergencyName) VALUES(:name,:gender,:phone,:email,:password,:emergencyNumber, :emergencyName)");
@@ -39,7 +39,7 @@ function register($name, $gender, $phone, $email, $password, $emergencyNumber, $
 }
 
 //update userinformation
-function update($name = null, $gender = null, $phone = null, $email = null, $password = null, $emergencyNumber = null, $emergencyName = null)
+function update_frontend($name = null, $gender = null, $phone = null, $email = null, $password = null, $emergencyNumber = null, $emergencyName = null)
 {
     $stmt = $conn->prepare("UPDATE users SET name=:name, gender=:gender, phone=:phone, email=:email,
       password=:password,emergencyNumber=:emergencyNumber, emergencyName=:emergencyName");

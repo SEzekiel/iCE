@@ -1,6 +1,6 @@
 <?php
 
-include '../Model/User.php';
+include '../Model/frontend_user.php';
 $name = $_GET['name'];
 $gender = $_GET['gender'];
 $phone = $_GET['phone'];
