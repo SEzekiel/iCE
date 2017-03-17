@@ -41,14 +41,29 @@ function register($name, $gender, $phone, $email, $password, $emergencyNumber, $
 //update userinformation
 function update($name = null, $gender = null, $phone = null, $email = null, $password = null, $emergencyNumber = null, $emergencyName = null)
 {
-    $stmt = $conn->prepare("UPDATE users SET name=:name, gender=:gender, phone=:phone, email=:email, password=:password,emergencyNumber=:emergencyNumber, emergencyName=:emergencyName");
-    $stmt->bindparam(":name", $name);
-    $stmt->bindparam(":gender", $phone);
-    $stmt->bindparam(":phone", $phone);
-    $stmt->bindparam(":email", $email);
-    $stmt->bindparam(":password", $password);
-    $stmt->bindparam(":emergencyName", $emergencyName);
-    $stmt->bindparam(":emergencyNumber", $emergencyNumber);
+    $stmt = $conn->prepare("UPDATE users SET name=:name, gender=:gender, phone=:phone, email=:email,
+      password=:password,emergencyNumber=:emergencyNumber, emergencyName=:emergencyName");
+    if($name != null){
+      $stmt->bindparam(":name", $name);
+    }
+    if($gender != null){
+      $stmt->bindparam(":gender", $gender);
+    }
+    if($phone != null){
+      $stmt->bindparam(":phone", $phone);
+    }
+    if($email != null){
+        $stmt->bindparam(":email", $email);
+    }
+    if($password != null){
+      $stmt->bindparam(":password", $password);
+    }
+    if($emergencyNumber != null){
+      $stmt->bindparam(":emergencyNumber", $emergencyNumber);
+    }
+    if($emergencyName != null){
+      $stmt->bindparam(":emergencyName", $emergencyName);
+    }
     if ($stmt->execute()) {
         return true;
     } else {
