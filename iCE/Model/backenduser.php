@@ -38,16 +38,24 @@ function registerBackendUser($name, $phone, $email, $password)
 //update backend user information
 function updateBackendUser($name = null, $phone = null, $email = null, $password = null)
 {
-    $stmt = $conn->prepare("UPDATE backend SET name=:name, phone=:phone, email=:email, password=:password");
-    $stmt->bindparam(":name", $name);
-    $stmt->bindparam(":phone", $phone);
-    $stmt->bindparam(":email", $email);
+  $stmt = $conn->prepare("UPDATE backend SET name=:name, phone=:phone, email=:email, password=:password");
+  if($name != null){
+      $stmt->bindparam(":name", $name);
+  }
+  if($phone != null){
+      $stmt->bindparam(":phone", $phone);
+  }
+  if($email != null){
+      $stmt->bindparam(":email", $email);
+  }
+  if($password != null){
     $stmt->bindparam(":password", $password);
-    if ($stmt->execute()) {
-        return true;
-    } else {
-        return false;
-    }
+  }
+  if ($stmt->execute()) {
+      return true;
+  } else {
+      return false;
+  }
 }
 
 //get single data from database
