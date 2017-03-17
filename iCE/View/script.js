@@ -133,3 +133,33 @@ function validateEmail(email){
 		return false;
 	}
 }
+
+function send(type, number){
+	var image = ""
+	var choice = confirm("Do you want to attach an image to this report?");
+	if (choice == true){
+	document.getElementById('cam').click();
+	image = document.getElementById('cam').value;
+	}
+
+	/*
+	*Get location
+	*/
+
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        alert("Geolocation is not supported by your device.");
+    }
+}
+function showPosition(position) {
+    var lat = position.coords.latitude;
+    var long = position.coords.longitude;
+
+    var coord = [lat, long];
+
+    return coord
+}
