@@ -1,22 +1,33 @@
 <?php
+include '../Model/User.php';
 
-function login($username, $password)
+function login_user($username, $password)
 {
-    if (authenticate($username, $password)) {
-        session_start();
-        $user = new User($username);  //create new user
-        $_SESSION['user'] = $user;
+    if (login($username, $password)) {
         echo 'true';
     } else {
         echo 'false';
     }
 }
 
-function authenticate($u, $p)
+
+function SignUpController($name, $gender, $phone, $email, $password, $emergencyNumber, $emergencyName)
 {
-    $auth = false;
-    if ($u == 'admin' && $p == 'password') $auth = true;
-    return $auth;
+    if (register($name, $gender, $phone, $email, $password, $emergencyNumber, $emergencyName)) {
+        echo "true";
+    } else {
+        echo "false";
+    }
+}
+
+
+function update_user($name = null, $gender = null, $phone = null, $email = null, $password = null, $emergencyNumber = null, $emergencyName = null)
+{
+    if (update($name, $gender, $phone, $email, $password, $emergencyNumber, $emergencyName)) {
+        echo 'true';
+    } else {
+        echo 'false';
+    }
 }
 
 
