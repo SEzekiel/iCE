@@ -1,35 +1,30 @@
 <?php
-class UserController
+
+function login($username, $password)
 {
-    function UserController($username,$password){
-
-    }
-    function login($username, $password)
-    {
-        if ($this->authenticate($username, $password)) {
-            session_start();
-            $user = new User($username);  //create new user
-            $_SESSION['user'] = $user;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    static function authenticate($u, $p)
-    {
-        $auth = false;
-        if ($u == 'admin' && $p == 'password') $auth = true;
-        return $auth;
-    }
-
-    function logout()
-    {
+    if (authenticate($username, $password)) {
         session_start();
-        session_destroy();
+        $user = new User($username);  //create new user
+        $_SESSION['user'] = $user;
+        echo 'true';
+    } else {
+        echo 'false';
     }
 }
 
+function authenticate($u, $p)
+{
+    $auth = false;
+    if ($u == 'admin' && $p == 'password') $auth = true;
+    return $auth;
+}
+
+
+function logout()
+{
+    session_start();
+    session_destroy();
+}
 
 
 ?>
