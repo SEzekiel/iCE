@@ -8,6 +8,13 @@
  */
 include '../Model/emergency_model.php';
 
+$rNumber = $GET['number'];
+$type = $GET['type'];
+$recipient = $GET['recipient'];
+$mess = $GET['message'];
+$lat = $GET['lat'];
+$long = $GET['long'];
+$image = $GET['image'];
 
 function add_emergency($reporterNumber, $type, $recipient, $message, $lat, $long, $image)
 {
