@@ -22,7 +22,7 @@ function login_frontend($email, $password)
 //register user
 function register_frontend($name, $gender, $phone, $email, $password, $emergencyNumber, $emergencyName)
 {
-    $password = password_hash($upass, PASSWORD_BCRYPT, array('cost' => 11));
+    $new_password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 11));
     $stmt = $conn->prepare("INSERT INTO users(name,gender,phone,email,password,emergencyNumber, emergencyName) VALUES(:name,:gender,:phone,:email,:password,:emergencyNumber, :emergencyName)");
     $stmt->bindparam(":name", $name);
     $stmt->bindparam(":gender", $phone);

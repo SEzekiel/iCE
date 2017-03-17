@@ -22,12 +22,12 @@ function login_backend($email, $password)
 //register backend user
 function registerBackendUser($name, $phone, $email, $password)
 {
-    $password = password_hash($upass, PASSWORD_BCRYPT, array('cost' => 11));
+    $new_password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 11));
     $stmt = $conn->prepare("INSERT INTO backend(name,phone,email,password) VALUES(:name,:phone,:email,:password)");
     $stmt->bindparam(":name", $name);
     $stmt->bindparam(":phone", $phone);
     $stmt->bindparam(":email", $email);
-    $stmt->bindparam(":password", $password);
+    $stmt->bindparam(":password", $new_password);
     if ($stmt->execute()) {
         return true;
     } else {
