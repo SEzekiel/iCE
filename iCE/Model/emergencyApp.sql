@@ -6,7 +6,7 @@ create table users(
 	id int auto_increment,
     name varchar(60) not null,
     phone varchar(20) unique,
-    email varchar(20) unique,
+    email varchar(40) unique,
     password varchar(255),
     primary key(id)
 );
@@ -16,7 +16,7 @@ create table emergencyOfficial(
     name varchar(60) not null,
     gender enum('Male','Female'),
     phone varchar(20) unique,
-    email varchar(20) unique,
+    email varchar(40) unique,
     password varchar(255),
     emergencyName varchar(60),
     emergencyNumber varchar(20),
