@@ -2,8 +2,8 @@ create database Emergency;
 
 use Emergency;
 
-create table users(
-	id int auto_increment,
+create table backend(
+	id int(11) auto_increment not null,
     name varchar(60) not null,
     phone varchar(20) unique,
     email varchar(40) unique,
@@ -11,8 +11,8 @@ create table users(
     primary key(id)
 );
 
-create table emergencyOfficial(
-	id int auto_increment,
+create table users(
+	id int(11) auto_increment not null,
     name varchar(60) not null,
     gender enum('Male','Female'),
     phone varchar(20) unique,
@@ -24,7 +24,7 @@ create table emergencyOfficial(
 );
 
 create table emergency(
-	id int auto_increment,
+	id int auto_increment not null,
     reporterNumber varchar(20) not null,
     type enum('Fire', 'Health', 'Robbery', 'Flood', 'Other', 'Accident'),
     recipient varchar(60),
@@ -37,7 +37,7 @@ create table emergency(
 );
 
 create table activity(
-	id int auto_increment not null,
+	id int(11) auto_increment not null,
     time timestamp,
     userId int,
     error varchar(60),
@@ -46,5 +46,10 @@ create table activity(
 );
 
 
+insert into users(name, gender, phone, email, password, emergencyName, emergencyNumber) values
+('Elvis Okoh-Asirifi', 'Male', '0248260286', 'elvis@gmail.com', '123456', 'Sarah Amoh', '0542573522');
 
+insert into emergency(reporterNumber, type, message, locationLatitude, locationLongitude) values
+('0248260286', 'Fire', 'Hello World', '5.2', '-0.21');
 
+SELECT * from emergency where type in ('fire');
