@@ -38,11 +38,11 @@ create table emergency(
 
 create table activity(
 	id int(11) auto_increment not null,
-    time timestamp,
-    userId int,
-    error varchar(60),
-    primary key(id),
-    foreign key(userId) references users(id)
+  time timestamp DEFAULT current_timestamp,
+  userId int,
+  error text,
+  primary key(id),
+  foreign key(userId) references users(id)
 );
 
 
