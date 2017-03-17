@@ -79,3 +79,11 @@ function resultSet()
     }
     return $allData;
 }
+function delete($id){
+  $stmt = $conn->prepare("DELETE FROM backend WHERE id =:id");
+  if($stmt->execute(array(':id' =>$id ))){
+    return true;
+  }else{
+    return false
+  }
+}
