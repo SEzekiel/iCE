@@ -22,7 +22,7 @@ function get_emergency($reporter_type)
     }
 }
 //upload image
- public function uploadImage()
+ public function uploadImage($imageName)
   {
     $target_dir = "images/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
@@ -51,7 +51,8 @@ function get_emergency($reporter_type)
         } else {
           if (
             move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-            return true;
+            //return the name dir address of the file
+            return $target_file;
             } else {
               echo "Sorry, there was an error uploading your file.";
            }
@@ -60,14 +61,14 @@ function get_emergency($reporter_type)
 
 function add_emergency($reporterNumber, $type, $recipient, $message, $lat, $long, $image)
 {
-    $stmt = $conn->prepare("INSERT INTO emergency(reporterNumber,'type',recipient,message,locationLatitude,locationLongitude,image) VALUES(:reporterNumber,:'type', :recipient,:message,:lat,:long,:image)");
-    $stmt->bindparam(":reporterNumber", $reporterNumber);
+    $stmt = $conn->prepare("INSERT INTO emergency(number,'type',recipient,message,lat,long,image) VALUES(:number,:'type', :recipient,:message,:lat,:long,:image)");
+    $stmt->bindparam(":number", $reporterNumber);
     $stmt->bindparam(":type", $type);
     $stmt->bindparam(":recipient", $recipient);
     $stmt->bindparam(":message", $message);
     $stmt->bindparam(":lat", $lat);
     $stmt->bindparam(":long", $long);
-    $stmt->bindparam(":image", $image);
+    $stmt->bindparam(":image", uploadImage($image));
     if ($stmt->execute()) {
         return true;
     } else {

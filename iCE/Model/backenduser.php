@@ -69,7 +69,7 @@ function getBackendUser($id)
 }
 
 //get all data from database
-function resultSet()
+function resultSet1()
 {
     $allData = array();
     $stmt = $conn->prepare("SELECT * FROM backend");
@@ -79,11 +79,11 @@ function resultSet()
     }
     return $allData;
 }
-function delete($id){
+function delete1($id){
   $stmt = $conn->prepare("DELETE FROM backend WHERE id =:id");
   if($stmt->execute(array(':id' =>$id ))){
     return true;
   }else{
-    return false
+    return false;
   }
 }

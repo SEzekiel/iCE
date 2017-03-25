@@ -1,17 +1,20 @@
 <?php
 
 include 'dbconnect.php';
-
 //login
 function login_frontend($email, $password)
 {
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email=:email LIMIT 1");
-    $stmt->execute(array(':email' => $email));
-    $userRow = $stmt->fetch();
-    if ($stmt->rowCount() == 0) {
-        if (password_verify($password, $userRow['password'])) {
-            $_SESSION['user_id'] = $userRow['id'];
-            $_SESSION['name'] = $userRow['name'];
+      $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DBNAME);
+    if (!$conn) {
+      echo("Error". $conn->connect_error);
+    }
+    $query = "SELECT * FROM users WHERE email = '$email' OR phone  = '$email'";
+    $result = mysqli_query($conn,$query);
+    if (mysqli_num_rows($result) == 1) {
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['name'] = $row['name'];
             return true;
         } else {
             return false;
@@ -22,16 +25,14 @@ function login_frontend($email, $password)
 //register user
 function register_frontend($name, $gender, $phone, $email, $password, $emergencyNumber, $emergencyName)
 {
+  $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DBNAME);
+  if (!$conn) {
+    echo("Error". $conn->connect_error);
+  }
     $new_password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 11));
-    $stmt = $conn->prepare("INSERT INTO users(name,gender,phone,email,password,emergencyNumber, emergencyName) VALUES(:name,:gender,:phone,:email,:password,:emergencyNumber, :emergencyName)");
-    $stmt->bindparam(":name", $name);
-    $stmt->bindparam(":gender", $phone);
-    $stmt->bindparam(":phone", $phone);
-    $stmt->bindparam(":email", $email);
-    $stmt->bindparam(":password", $password);
-    $stmt->bindparam(":emergencyName", $emergencyName);
-    $stmt->bindparam(":emergencyNumber", $emergencyNumber);
-    if ($stmt->execute()) {
+    $query = "INSERT INTO users(name,gender,phone,email,password,emergencyNumber, emergencyName) VALUES('$name','$gender','$phone','$email','$new_password','$emergencyName','$emergencyNumber')";
+      $result = mysqli_query($conn,$query);
+    if ($result) {
         return true;
     } else {
         return false;
@@ -97,6 +98,7 @@ function delete($id){
   if($stmt->execute(array(':id' =>$id ))){
     return true;
   }else{
-    return false
+    return false;
   }
 }
+?>
