@@ -16,7 +16,9 @@ function login(user, pass){
 	var httpRequest = new XMLHttpRequest();
 	httpRequest.onreadystatechange = function(){
 		if (this.readyState == 4 && this.status == 200) {
-			if (this.responseText == "true") {
+			alert("in");
+			var len = this.responseText.length;
+			if (len == 2) {
 				window.location.assign("#/app/profile");
 			} else {
 				alert("Wrong username or password");
@@ -24,7 +26,7 @@ function login(user, pass){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "../Controller/login-controller.php?user="+user+"&pass="+pass,true);
+	httpRequest.open("GET", "../Controller/user_controller.php?user="+user+"&pass="+pass+"&c=1",true);
 	httpRequest.send();
 }
 
@@ -37,17 +39,16 @@ function doSignup(){
 	var pass = document.getElementById('password').value;
 	var cName = document.getElementById('cname').value;
 	var cNumber = document.getElementById('cphone').value;
-
-	if (name != "") {
-		if (phone != "") {
-			if (validatePhone(phone)) {
-				if (email != "") {
-					if (validateEmail(email)) {
-						if (gender != "") {
-							if (pass.length < 8) {
-								if (cName != "") {
-									if (cNumber != "") {
-										if (validatePhone(cNumber)) {
+	if (name !== "") {
+		if (phone !== "") {
+			if (validatePhone(phone) ==true) {
+				if (email !== "") {
+					if (validateEmail(email) == true) {
+						if (gender !== "") {
+							if (pass.length >= 8) {
+								if (cName !== "") {
+									if (cNumber !== "") {
+										if (validatePhone(cNumber) ==true) {
 											signup(name, phone, email,gender,pass,cName, cNumber);
 										} else {
 											document.getElementById('message').innerHTML = "Emergency number is invalid";
@@ -71,7 +72,7 @@ function doSignup(){
 					document.getElementById('message').innerHTML = "Provide a value for email";
 				}
 			} else {
-				document.getElementById('message').innerHTML = "Phone number is invalid";
+				document.getElementById('message').innerHTML = "Phone number is invalid 1";
 			}
 		} else {
 			document.getElementById('message').innerHTML = "Provide a value for phone number";
@@ -89,49 +90,50 @@ function signup(name, phone, email,gender,pass,cName, cNumber){
 	var httpRequest = new XMLHttpRequest();
 	httpRequest.onreadystatechange = function(){
 		if (this.readyState == 4 && this.status == 200) {
-			if (this.responseText == "true") {
-				alert("The registeration was successful\n You will now be redirected to login");
+			var len = this.responseText.length;
+			if (len == 2) {
+				document.getElementById('message').innerHTML = "<eze style=\"color:green\">The registeration was successful\n You will now be redirected to login</eze>";
 				window.location.assign("#/app/login");
 			} else {
-				alert("There was an error in the registeration process");
+				document.getElementById('message').innerHTML = "<eze style=\"color:green\">An error occured while trying to signup</eze>";
 			}
-			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/signup_controller.php?"+data,true);
 	httpRequest.send();
 }
 
 function validatePhone(phonenumber){
-	const regex = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
-	let m;
-
-	if ((m = regex.exec(phonenumber)) !== null) {
-	    // The result can be accessed through the `m`-variable.
-	    m.forEach((match, groupIndex) => {
-	        return true;
-	        //console.log(`Found match, group ${groupIndex}: ${match}`);
-	    });
-}
-else{
-	return false;
-}
+     //    const phoneNum = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; 
+     //        let n;
+     //        if((n = phoneNum.exec(phonenumber)) !== null) {
+     //    		// The result can be accessed through the `m`-variable.
+	    // 		n.forEach((match, groupIndex) => {
+	    //     	return true;
+	    //     	//console.log(`Found match, group ${groupIndex}: ${match}`);
+	    // });
+     //        }
+     //        else {
+     //            return false;
+     //        }
+     return true;
 }
 
 function validateEmail(email){
-	const regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-	let m;
+	// const regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	// let m;
 
-	if ((m = regex.exec(email)) !== null) {
-	    // The result can be accessed through the `m`-variable.
-	    m.forEach((match, groupIndex) => {
-	        return true;
-	        //console.log(`Found match, group ${groupIndex}: ${match}`);
-	    });
-	}
-	else{
-		return false;
-	}
+	// if ((m = regex.exec(email)) !== null) {
+	//     // The result can be accessed through the `m`-variable.
+	//     m.forEach((match, groupIndex) => {
+	//         return true;
+	//         //console.log(`Found match, group ${groupIndex}: ${match}`);
+	//     });
+	// }
+	// else{
+	// 	return false;
+	// }
+	return true;
 }
 
 function sendRobbery(position){
@@ -160,7 +162,7 @@ function sendRobbery(position){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/emergency-controller.php?"+data,true);
 	httpRequest.send();
 
 }
@@ -232,7 +234,7 @@ function sendHealth(position){
 			//document.getElementById('display').innerHTML = this.responseText;
 		}
 	};
-	httpRequest.open("GET", "../Controller/signup-controller.php?"+data,true);
+	httpRequest.open("GET", "../Controller/emergency-controller.php?"+data,true);
 	httpRequest.send();
 
 }
