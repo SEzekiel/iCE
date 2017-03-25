@@ -1,7 +1,11 @@
 <?php
-include '../Model/frontend_user.php';
-include "../Model/backenduser.php";
-
+require '../Model/frontend_user.php';
+//require "../Model/backenduser.php";
+if (isset($_GET['c'])) {
+    $user = $_GET['user'];
+    $pass = $_GET['pass'];
+    login_user_frontend($user, $pass);
+}
 
 /**
  * This login in  frontend users
@@ -11,9 +15,9 @@ include "../Model/backenduser.php";
 function login_user_frontend($username, $password)
 {
     if (login_frontend($username, $password)) {
-        echo 'true';
+        echo true;
     } else {
-        echo 'false';
+        echo false;
     }
 }
 
